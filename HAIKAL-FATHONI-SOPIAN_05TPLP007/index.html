@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simk - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .table-actions {
+            white-space: nowrap;
+        }
+        .pagination {
+            margin-bottom: 0;
+        }
+        .table > :not(caption) > * > * {
+            padding: 0.75rem;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Creative Team<sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                MENU KARYAWAN
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="karyawan.html">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Karyawan</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="jabatan.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Jabatan</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="divisi.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Divisi</span></a>
+            </li>
+            <!-- Heading2 -->
+             <!-- Heading -->
+            <div class="sidebar-heading">
+                MENU ABSENSI
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="absensi.html">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Absensi</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="izin.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Izin</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="lembur.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Lembur</span></a>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                            <div class="container-fluid">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h3>Sistem Informasi Manajemen Karyawan</h3>
+                                </div>
+                                <h5 class="mb-4">Admin Dashboard</h5>
+
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <!-- Data Pegawai Card -->
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-primary shadow h-100 py-2 card-counter">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                            Data Pegawai</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dataPegawai">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Absensi Card -->
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-success shadow h-100 py-2 card-counter">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                            Absensi Hari Ini</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="absensiHariIni">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-calendar-check fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Izin Card -->
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-info shadow h-100 py-2 card-counter">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                            Izin Menunggu Konfirmasi</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="izinMenungguKonfirmasi">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Lembur Card -->
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-warning shadow h-100 py-2 card-counter">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                            Lembur Menunggu Konfirmasi</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="lemburMenungguKonfirmasi">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-business-time fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scripts -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+                
+                <script>
+                    // Simulasi data
+                    let dashboardData = {
+                        dataPegawai: 13,
+                        absensiHariIni: 0,
+                        izinMenungguKonfirmasi: 2,
+                        lemburMenungguKonfirmasi: 1
+                    };
+
+                    // Fungsi untuk memperbarui tampilan dashboard
+                    function updateDashboard(data) {
+                        const elements = {
+                            dataPegawai: document.getElementById('dataPegawai'),
+                            absensiHariIni: document.getElementById('absensiHariIni'),
+                            izinMenungguKonfirmasi: document.getElementById('izinMenungguKonfirmasi'),
+                            lemburMenungguKonfirmasi: document.getElementById('lemburMenungguKonfirmasi')
+                        };
+
+                        // Update nilai dan tambahkan efek animasi
+                        Object.keys(elements).forEach(key => {
+                            if (elements[key].textContent !== data[key].toString()) {
+                                elements[key].textContent = data[key];
+                                elements[key].closest('.card-counter').classList.add('updated');
+                                setTimeout(() => {
+                                    elements[key].closest('.card-counter').classList.remove('updated');
+                                }, 1000);
+                            }
+                        });
+                    }
+
+                    // Fungsi untuk mengambil data dari server
+                    async function fetchDashboardData() {
+                        try {
+                            // Ganti URL ini dengan endpoint API Anda
+                            const response = await fetch('/api/dashboard-data');
+                            const data = await response.json();
+                            updateDashboard(data);
+                        } catch (error) {
+                            console.error('Error fetching dashboard data:', error);
+                            // Gunakan data simulasi jika API gagal
+                            updateDashboard(dashboardData);
+                        }
+                    }
+
+                    // Polling function untuk update regular
+                    function startPolling() {
+                        // Update awal
+                        fetchDashboardData();
+                        
+                        // Set interval untuk update regular (setiap 5 detik)
+                        setInterval(fetchDashboardData, 5000);
+                    }
+
+                    // Event listener untuk memulai polling ketika dokumen dimuat
+                    document.addEventListener('DOMContentLoaded', startPolling);
+
+                    // Event listener untuk memperbarui data ketika tab menjadi aktif
+                    document.addEventListener('visibilitychange', () => {
+                        if (!document.hidden) {
+                            fetchDashboardData();
+                        }
+                    });
+
+                    // Toggle sidebar
+                    document.getElementById('sidebarToggleTop').addEventListener('click', function() {
+                        document.querySelector('.sidebar').classList.toggle('toggled');
+                    });
+                </script>>
+            </div>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

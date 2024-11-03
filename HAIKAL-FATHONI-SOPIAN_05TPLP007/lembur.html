@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simk - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .table-actions {
+            white-space: nowrap;
+        }
+        .pagination {
+            margin-bottom: 0;
+        }
+        .table > :not(caption) > * > * {
+            padding: 0.75rem;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Creative Team<sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu Karyawan
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="karyawan.html">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Karyawan</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="jabatan.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Jabatan</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="divisi.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Divisi</span></a>
+            </li>
+               <!-- Heading2 -->
+               <div class="sidebar-heading">
+                MENU ABSENSI
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="absensi.html">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Absensi</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="izin.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Izin</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Lembur</span></a>
+            </li>
+            <!-- heading2 -->
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <div class="container mt-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2>Daftar Lembur Karyawan</h2>
+                                <button class="btn btn-primary" onclick="showAddModal()">
+                                    <i class="fas fa-plus"></i> Tambah Lembur
+                                </button>
+                            </div>
+                
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="d-flex align-items-center">
+                                            Show 
+                                            <select class="form-select mx-2" style="width: auto;" onchange="changePageSize(this)">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                            entries
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            Search: 
+                                            <input type="text" class="form-control ms-2" onkeyup="searchTable(this)">
+                                        </div>
+                                    </div>
+                
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Jam Lembur<br/>Mulai | Berakhir</th>
+                                                    <th>Keperluan Lembur</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="overtimeTableBody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Modal for Add/Edit -->
+                        <div class="modal fade" id="overtimeModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitle">Tambah Lembur</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="overtimeForm">
+                                            <input type="hidden" id="overtimeId">
+                                            <div class="mb-3">
+                                                <label class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="nama" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Tanggal</label>
+                                                <input type="date" class="form-control" id="tanggal" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Jam Mulai</label>
+                                                <input type="time" class="form-control" id="jamMulai" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Jam Berakhir</label>
+                                                <input type="time" class="form-control" id="jamBerakhir" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Keperluan Lembur</label>
+                                                <textarea class="form-control" id="keperluan" required></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="button" class="btn btn-primary" onclick="saveOvertime()">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+                        <script>
+                            // Initialize data
+                            let overtimes = [
+                                { id: 1, nama: 'Agus', tanggal: '2023-05-10', jamMulai: '10:35:00', jamBerakhir: '15:35:00', keperluan: '213', status: 'Menunggu Konfirmasi' },
+                                { id: 2, nama: 'Ujang', tanggal: '2023-05-09', jamMulai: '11:05:00', jamBerakhir: '04:05:00', keperluan: '8', status: 'Disetujui' },
+                                { id: 3, nama: 'Surya', tanggal: '2023-05-04', jamMulai: '17:00:00', jamBerakhir: '17:00:00', keperluan: 'lembur', status: 'Disetujui' },
+                                { id: 4, nama: 'Yamal', tanggal: '2023-05-03', jamMulai: '17:00:00', jamBerakhir: '21:37:00', keperluan: 'Printer', status: 'Disetujui' },
+                                { id: 5, nama: 'Rena', tanggal: '2023-04-30', jamMulai: '01:46:00', jamBerakhir: '04:46:00', keperluan: '123', status: 'Disetujui' },
+                                { id: 6, nama: 'Putra', tanggal: '2023-04-28', jamMulai: '17:00:00', jamBerakhir: '20:51:00', keperluan: 'Printer FEB', status: 'Disetujui' }
+                            ];
+                
+                            const overtimeModal = new bootstrap.Modal(document.getElementById('overtimeModal'));
+                            let editingId = null;
+                
+                            // Render table
+                            function renderTable() {
+                                const tbody = document.getElementById('overtimeTableBody');
+                                tbody.innerHTML = '';
+                                
+                                overtimes.forEach((ovt, index) => {
+                                    const tr = document.createElement('tr');
+                                    tr.innerHTML = `
+                                        <td>${index + 1}</td>
+                                        <td>${ovt.nama}</td>
+                                        <td>${formatDate(ovt.tanggal)}</td>
+                                        <td>${ovt.jamMulai} | ${ovt.jamBerakhir}</td>
+                                        <td>${ovt.keperluan}</td>
+                                        <td>${ovt.status}</td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-info btn-sm" onclick="viewOvertime(${ovt.id})">
+                                                <i class="fas fa-eye text-white"></i>
+                                            </button>
+                                            <button class="btn btn-primary btn-sm" onclick="editOvertime(${ovt.id})">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-success btn-sm" onclick="approveOvertime(${ovt.id})">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    `;
+                                    tbody.appendChild(tr);
+                                });
+                            }
+                
+                            function formatDate(dateStr) {
+                                const date = new Date(dateStr);
+                                return date.toLocaleDateString('id-ID');
+                            }
+                
+                            // Show add modal
+                            function showAddModal() {
+                                editingId = null;
+                                document.getElementById('modalTitle').textContent = 'Tambah Lembur';
+                                document.getElementById('overtimeForm').reset();
+                                overtimeModal.show();
+                            }
+                
+                            // View overtime
+                            function viewOvertime(id) {
+                                const overtime = overtimes.find(ovt => ovt.id === id);
+                                if (overtime) {
+                                    alert(`
+                                        Nama: ${overtime.nama}
+                                        Tanggal: ${formatDate(overtime.tanggal)}
+                                        Jam Lembur: ${overtime.jamMulai} - ${overtime.jamBerakhir}
+                                        Keperluan: ${overtime.keperluan}
+                                        Status: ${overtime.status}
+                                    `);
+                                }
+                            }
+                
+                            // Edit overtime
+                            function editOvertime(id) {
+                                const overtime = overtimes.find(ovt => ovt.id === id);
+                                if (overtime) {
+                                    editingId = id;
+                                    document.getElementById('modalTitle').textContent = 'Edit Lembur';
+                                    document.getElementById('nama').value = overtime.nama;
+                                    document.getElementById('tanggal').value = overtime.tanggal;
+                                    document.getElementById('jamMulai').value = overtime.jamMulai;
+                                    document.getElementById('jamBerakhir').value = overtime.jamBerakhir;
+                                    document.getElementById('keperluan').value = overtime.keperluan;
+                                    overtimeModal.show();
+                                }
+                            }
+                
+                            // Approve overtime
+                            function approveOvertime(id) {
+                                const overtime = overtimes.find(ovt => ovt.id === id);
+                                if (overtime && overtime.status === 'Menunggu Konfirmasi') {
+                                    if (confirm('Apakah Anda yakin ingin menyetujui lembur ini?')) {
+                                        overtime.status = 'Disetujui';
+                                        renderTable();
+                                    }
+                                }
+                            }
+                
+                            // Save overtime
+                            function saveOvertime() {
+                                const form = document.getElementById('overtimeForm');
+                                if (form.checkValidity()) {
+                                    const overtimeData = {
+                                        nama: document.getElementById('nama').value,
+                                        tanggal: document.getElementById('tanggal').value,
+                                        jamMulai: document.getElementById('jamMulai').value,
+                                        jamBerakhir: document.getElementById('jamBerakhir').value,
+                                        keperluan: document.getElementById('keperluan').value,
+                                        status: 'Menunggu Konfirmasi'
+                                    };
+                
+                                    if (editingId === null) {
+                                        // Add new overtime
+                                        overtimeData.id = overtimes.length + 1;
+                                        overtimes.push(overtimeData);
+                                    } else {
+                                        // Update existing overtime
+                                        const index = overtimes.findIndex(ovt => ovt.id === editingId);
+                                        if (index !== -1) {
+                                            overtimeData.id = editingId;
+                                            overtimeData.status = overtimes[index].status;
+                                            overtimes[index] = overtimeData;
+                                        }
+                                    }
+                
+                                    renderTable();
+                                    overtimeModal.hide();
+                                } else {
+                                    form.reportValidity();
+                                }
+                            }
+                
+                            // Search functionality
+                            function searchTable(input) {
+                                const searchText = input.value.toLowerCase();
+                                const tbody = document.getElementById('overtimeTableBody');
+                                tbody.innerHTML = '';
+                                
+                                const filteredOvertimes = overtimes.filter(ovt => 
+                                    ovt.nama.toLowerCase().includes(searchText) ||
+                                    ovt.keperluan.toLowerCase().includes(searchText) ||
+                                    ovt.status.toLowerCase().includes(searchText)
+                                );
+                
+                                filteredOvertimes.forEach((ovt, index) => {
+                                    const tr = document.createElement('tr');
+                                    tr.innerHTML = `
+                                        <td>${index + 1}</td>
+                                        <td>${ovt.nama}</td>
+                                        <td>${formatDate(ovt.tanggal)}</td>
+                                        <td>${ovt.jamMulai} | ${ovt.jamBerakhir}</td>
+                                        <td>${ovt.keperluan}</td>
+                                        <td>${ovt.status}</td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-info btn-sm" onclick="viewOvertime(${ovt.id})">
+                                                <i class="fas fa-eye text-white"></i>
+                                            </button>
+                                            <button class="btn btn-primary btn-sm" onclick="editOvertime(${ovt.id})">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-success btn-sm" onclick="approveOvertime(${ovt.id})">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    `;
+                                    tbody.appendChild(tr);
+                                });
+                            }
+                
+                            // Change page size
+                            function changePageSize(select) {
+                                // Implement pagination if needed
+                                console.log('Selected page size:', select.value);
+                            }
+                
+                            // Initial render
+                            renderTable();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
